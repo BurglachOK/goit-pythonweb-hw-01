@@ -68,7 +68,7 @@ class LibraryManager:
         if not books:
             logging.info("Library is empty \n")
             return
-        print("Books in the library:")
+        
         for book in books:
             logging.info(
                 "Title: %s, Author: %s, Year: %s",
@@ -91,7 +91,7 @@ def main() -> None:
                 author = input("Enter book author: ").strip()
                 year_input = input("Enter book year: ").strip()
 
-                if not year_input.isdigit():
+                while not year_input.isdigit():
                     logging.info("Year must be a number, please try again.")
                     year_input = input("Enter book year: ").strip()
 

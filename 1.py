@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import logging
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
-class Vehicle:
+class Vehicle(ABC):
     def __init__(self, make: str, model: str):
         self.make = make
         self.model = model
@@ -26,7 +26,7 @@ class Motorcycle(Vehicle):
         logging.info("%s %s: Мотор заведено", self.make, self.model)
 
 
-class VehicleFactory:
+class VehicleFactory(ABC):
     @abstractmethod
     def create_car(self, make: str, model: str) -> Car:
         pass
